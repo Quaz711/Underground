@@ -16,4 +16,5 @@ I can view the lyrics and sing along.
 - When I click on one of the 10 artists' songs 
 - Then i am presented with the songs lyrics.
 
-![IMG_4537](https://user-images.githubusercontent.com/111384784/200460861-0ec32376-04bf-4e03-8ce7-6852f0546071.jpeg)
+
+![Screenshot 2022-11-08 at 10 14 01 AM](https://user-images.githubusercontent.com/111384784/200602332-fd2256b8-06bd-4389-97e0-ed1610b3ee0f.png)
