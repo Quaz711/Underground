@@ -35,7 +35,7 @@ h2 {
 
 .Wrapper{
     width: 370px;
-    margin: 130px auto 0;
+    margin: 130px left 0;
 }
 .select-btn, .options li{
     display: flex;
