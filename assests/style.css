@@ -51,16 +51,25 @@ h2 {
     justify-content: space-between;
 
 }
+/* rotates the select buton ^ */
 .select-btn i{
     font-size: 31px;
+    transition: transform 0.3s linear ;
+}
+.Wrapper.active .select-btn i{
+    transform: rotate(-180deg);
 }
 .content{
+    display: none;
     margin-top: 15px;
     padding: 20px;
     border-radius: 7px;
     background: white;
 }
 
+.Wrapper.active .content{
+    display: block;
+}
 .content .search{
     position: relative;
 
