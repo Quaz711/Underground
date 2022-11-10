@@ -21,7 +21,7 @@ async function convertToJson (response) {
 
 // Function that gets the searched artist query URL
 // Returns the data in JSON format
-async function searchSongAPI (artist) {
+async function searchSongAPI (artist, track) {
     let requestURL = `${baseURL}artist.search?q_artist=${artist}&q_track=${track}`;
     let response = await fetch(requestURL);
     let data = await convertToJson(response);
