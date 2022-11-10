@@ -7,7 +7,13 @@
     font-family: 'Poppins' , sans-serif;
 
 }
-/*
+
+@font-face {
+    font-family: undergroundFont;
+    src: url(/assets/adrip1.ttf);
+}
+
+
 /* background color*/
 body{
     background: #4285f4;
@@ -21,8 +27,9 @@ header {
 }
 h1 {
     text-align: center;
-    text-decoration: underline;
-    font-size: 100px;
+    /* text-decoration: underline; */
+    font-size: 150px;
+    font-family: undergroundFont;
     
 
 }
@@ -119,6 +126,18 @@ h2 {
     background: #f2f2f2;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*    
 .container{
