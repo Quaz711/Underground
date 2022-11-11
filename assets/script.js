@@ -12,7 +12,11 @@
 
 
 
+let baseURL = "https://developer.musixmatch.com/";
+
+
 let rootURL = "https://api.musixmatch.com/ws/1.1/";
+
 
 // Function for JSON conversion
 async function convertToJson (response) {
@@ -26,10 +30,12 @@ async function searchSongAPI (artist, track) {
     let response = await fetch(requestURL);
     let data = await convertToJson(response);
     console.log(data);
-    return data[0];
+
+    return data;
 }
 
-function displayLyrics (lyricObject) {
-    let lyrics = lyricObject
-    containerWhereLyricsWillGo.textContent = lyrics
+async function displaySoundcloud () {
+    console.log("entered display function");
 }
+        
+
