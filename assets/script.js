@@ -34,6 +34,12 @@ async function searchSongAPI (artist, track) {
     return data;
 }
 
+function displayLyrics (lyricObject) { 
+    let lyrics = lyricObject    
+    containerWhereLyricsWillGo.textContent = lyrics
+}
+
+
 async function displaySoundcloud () {
     console.log("entered display function");
 }
