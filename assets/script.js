@@ -11,7 +11,7 @@
 
 
 
-
+let genre = "rock";
 let baseURL = "https://developer.musixmatch.com/";
 
 // Function for JSON conversion
@@ -28,3 +28,29 @@ async function searchSongAPI (artist, track) {
     console.log(data);
     return data;
 }
+
+async function displaySoundcloud () {
+    console.log("entered display function");
+}
+        
+
+
+function displayLyrics () {
+
+}
+
+function previewSong () {
+    
+}
+
+var http = require('http');
+
+/* Create an HTTP server to handle responses */
+
+http
+  .createServer(function(request, response) {
+    response.writeHead(200, { 'Content-Type': 'text/plain' });
+    response.write('Hello World');
+    response.end();
+  })
+  .listen(8888);
