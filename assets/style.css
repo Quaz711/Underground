@@ -10,17 +10,23 @@
 @font-face {
     font-family: undergroundFont;
     src: url(/assets/adrip1.ttf);
+
 }
 
 /* background color*/
 body {
-    background: #4285f4;
+    /* background-image: 50%; */
+}
+
+#backg {
+    background-image: url(/assets/underg.jpg);
+    background-size: cover;
 }
 
 header {
     margin: 50px 180px;
     height: 150px;
-    background-color: grey;
+    /* background-color: grey; */
     text-decoration-color: brown;
 }
 h1 {
@@ -28,10 +34,13 @@ h1 {
     /* text-decoration: underline; */
     font-size: 150px;
     font-family: undergroundFont;
+    color: red;
+
 }
 h2 {
     text-align: center;
     font-size: 25px;
+    color: rgb(214, 154, 42);
 }
 
 /* custom genre select menu */
