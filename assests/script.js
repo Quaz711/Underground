@@ -1,8 +1,9 @@
 const wrapper = document.querySelector(".Wrapper"),
 selectBtn = wrapper.querySelector(".select-btn"),
+searchInp = wrapper.querySelector("input")
 
 options = wrapper.querySelector(".options");
-
+// array of genres
 let genres = ["Popular music", "Pop music", "Rock", "Hip hop music", "Rhythm and blues", "Country music",
     "Jazz", "Blues", "Electronic dance music", "Electronic music", "World music", "Classical music",
     "Music of the United States", "Heavy metal", "Alternative rock", "Soul music", "Dance music",
@@ -13,6 +14,7 @@ let genres = ["Popular music", "Pop music", "Rock", "Hip hop music", "Rhythm and
     "Latin pop", "Trap music", "Ska", "Bluegrass", "Hard rock", "Salsa music"];
 
 function addGenre() {
+    options.innerHTML = "";
    genres.forEach(genre => {
 
         let li = `<li onclick="updateName(this)">${genre}</li>`;
@@ -24,9 +26,21 @@ function addGenre() {
 addGenre();
 
 function updateName(selectedLi) {
-    console.log(selectedLi.innerText);
+    searchInp.value = "";
+    addGenre();
+    wrapper.classList.remove("active");
     selectBtn.firstElementChild.innerText = selectedLi.innerText;
 }
+
+searchInp.addEventListener("keyup", () => {
+    let arr = []; //empty array
+    let searchedVal = searchInp.value.toLowerCase();
+    //
+    arr = genres.filter(data => {
+        return data.toLowerCase().startsWith(searchedVal);
+    }).map(data => `<li onclick="updateName(this)">${data}</li>`).join("");
+    options.innerHTML = arr ? arr : `<p>Oops! Genre not found</p>`;
+});
 
 selectBtn.addEventListener("click", () => {
     wrapper.classList.toggle("active");
