@@ -9,17 +9,12 @@
 
 @font-face {
     font-family: undergroundFont;
-    src: url(/assets/adrip1.ttf);
+    src: url("adrip1.ttf");
 
-}
-
-/* background color*/
-body {
-    /* background-image: 50%; */
 }
 
 #backg {
-    background-image: url(/assets/underg.jpg);
+    background-image: url("underg.jpg");
     background-size: cover;
 }
 
@@ -46,6 +41,7 @@ h2 {
 /* custom genre select menu */
 
 .Wrapper {
+    float: left;
     width: 370px;
     margin: 130px left 0;
 }
@@ -132,6 +128,16 @@ h2 {
     }
 }
 
+#songContainer {
+    float: left;
+    width: 300px;
+    padding-left: 50px;
+    color: white;
+}
+
+#lyricsContainer {
+    color: wheat;
+}
 /*    
 .container{
         height:100vh;
