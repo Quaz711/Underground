@@ -31,7 +31,7 @@ async function addLyricsToHTML(songId) {
 
 // Function that gets the searched artist query URL
 // Returns the data in JSON format
-async function searchSongAPI(query="") {
+async function searchSongAPI(query="Beatles Let It be") {
     // let requestURL = `${rootURL}?uid=${userID}&tokenid=${token}&artist=${songObj.artist}&term=${songObj.term}&format=json`;
     let requestURL = `${geniusURL}/search?q=${query}&access_token=${geniusToken}`;
     let response = await fetch(requestURL);
