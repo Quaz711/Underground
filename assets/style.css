@@ -41,9 +41,7 @@ h2 {
 /* custom genre select menu */
 
 .Wrapper {
-    float: left;
-    width: 370px;
-    margin: 130px left 0;
+    display: flex;
 }
 .select-btn,
 .options li {
@@ -129,14 +127,21 @@ h2 {
 }
 
 #songContainer {
-    float: left;
-    width: 300px;
+    flex: 1;
+    width: 500px;
     padding-left: 50px;
-    color: white;
+    color: black;
 }
 
 #lyricsContainer {
-    color: wheat;
+    flex: 1;
+    /* text-decoration: none; */
+    color: black;
+}
+
+#lyricsContainer a {
+    text-decoration: none;
+    color: white;
 }
 /*    
 .container{
