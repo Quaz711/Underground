@@ -33,10 +33,13 @@ h1 {
 
 }
 h2 {
+    margin-bottom: 20px;
     text-align: center;
+    font-style: italic;
     font-size: 25px;
     color: rgb(214, 154, 42);
 }
+
 
 /* custom genre select menu */
 
@@ -131,6 +134,7 @@ h2 {
     width: 500px;
     padding-left: 50px;
     color: black;
+    margin-right: 10px;
 }
 
 #lyricsContainer {
@@ -142,6 +146,10 @@ h2 {
 #lyricsContainer a {
     text-decoration: none;
     color: white;
+}
+
+#genreDropdown {
+    margin-right: 10px;
 }
 /*    
 .container{
