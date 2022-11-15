@@ -9,11 +9,6 @@ async function convertToJson(response) {
     return await response.json();
 }
 
-function displayLyrics(lyricObject) {
-    let lyrics = lyricObject;
-    containerWhereLyricsWillGo.textContent = lyrics;
-}
-
 
 
 
@@ -102,7 +97,7 @@ const APIController = (function() {
         getGenres(token) {
             return _getGenres(token);
         },
-        getPlaylistByGenre(token, genreId) {
+        getPlaylistByGenre(token, genreId) { 
             return _getPlaylistByGenre(token, genreId);
         },
         getTracks(token, tracksEndPoint) {
@@ -361,20 +356,25 @@ async function test_function() {
     //const originalurl = "https://api.spotify.com/v1/search?type=track&q=year:1958%20genre:classical&limit=50";
     //const url = "https://api.spotify.com/v1/search?q=%2525" + alpha +"%2525&type=track%2Cartist&market=ES&limit=10&offset=" + offset;
     //const workingtesturl = "https://api.spotify.com/v1/search?q=%25" + alpha +"%25&type=track&q=%20genre:rock&limit=50";
-    const testurl = "https://api.spotify.com/v1/search?type=track&q=%20genre:" + test_genre + "&limit=10";
+    const testurl = "https://api.spotify.com/v1/search?type=track&q=%20genre:" + test_genre + "&limit=500";
     const options = {
     headers: {
         Authorization: "Bearer " + tempToken
     }
     };
 
-    fetch(testurl, options)
-    .then( res => res.json())
-    .then( data => console.log(data));
-    const myinformation = data.tracks;
-    console.log(myinformation);
+    let response = await fetch(testurl, options)
+    let data = await convertToJson(response)
+    console.log(data)
+    // let artist0 = data.tracks.items[0].artists[0].name
+    // let song0 = data.tacks.items[0].name
+    // console.log(artist0)
+    // console.log(song0)
+    return data;
 
 }
+
+
 
 /*const MusicBrainzApi = require('musicbrainz-api').MusicBrainzApi;
 
@@ -405,3 +405,4 @@ $getRandomOffset = rand(1, 1000);
 //This is the url that gets the results out of the Spotify API. You have to put in the variables you created above.
 $url = "https://api.spotify.com/v1/search?query=$getRandomSongs&offset=$getRandomOffset&limit=1&type=track&market=NL";
 */
+

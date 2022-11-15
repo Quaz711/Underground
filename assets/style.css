@@ -10,7 +10,44 @@
 @font-face {
     font-family: undergroundFont;
     src: url("adrip1.ttf");
+}
+ @font-face {
+    font-family: subtitleFont;
+    src: url("Mostwasted.ttf");
+ }
+body {
+    background: #111;
+    font-family: "Open Sans", Impact;
+}
 
+.around {
+    text-align: center;
+    animation: blur 3s ease-out infinite;
+    text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
+}
+
+@keyframes blur {
+    from {
+        text-shadow: 
+        0px 0px 10px #fff, 
+        0px 0px 10px #fff, 
+        0px 0px 25px #fff,
+        0px 0px 25px #fff, 
+        0px 0px 25px #fff, 
+        0px 0px 25px #fff,
+        0px 0px 25px #fff, 
+        0px 0px 25px #fff, 
+        0px 0px 50px #fff,
+        0px 0px 50px #fff, 
+        0px 0px 50px #7b96b8, 
+        0px 0px 150px #7b96b8,
+        0px 10px 100px #7b96b8, 
+        0px 10px 100px #7b96b8,
+        0px 10px 100px #7b96b8, 
+        0px 10px 100px #7b96b8,
+        0px -10px 100px #7b96b8, 
+        0px -10px 100px #7b96b8;
+    }
 }
 
 #backg {
@@ -21,23 +58,50 @@
 header {
     margin: 50px 180px;
     height: 150px;
-    /* background-color: grey; */
+
     text-decoration-color: brown;
 }
 h1 {
     text-align: center;
     /* text-decoration: underline; */
-    font-size: 150px;
+    font-size: 200px;
     font-family: undergroundFont;
-    color: red;
 
+    color: red;
 }
 h2 {
+    margin-bottom: 20px;
     text-align: center;
+    font-style: italic;
     font-size: 25px;
+    font-family: subtitleFont;
     color: rgb(214, 154, 42);
+
 }
 
+.subtitle {
+    color: black;
+    text-shadow:
+    0px 0px 10px #fff, 
+    0px 0px 10px #fff, 
+    0px 0px 25px #fff,
+    0px 0px 25px #fff, 
+    0px 0px 25px #fff, 
+    0px 0px 25px #fff,
+    0px 0px 25px #fff, 
+    0px 0px 25px #fff, 
+    0px 0px 50px #fff,
+    0px 0px 50px #fff, 
+    0px 0px 50px #7b96b8, 
+    0px 0px 150px #7b96b8,
+    0px 10px 100px #7b96b8, 
+    0px 10px 100px #7b96b8,
+    0px 10px 100px #7b96b8, 
+    0px 10px 100px #7b96b8,
+    0px -10px 100px #7b96b8, 
+    0px -10px 100px #7b96b8;
+
+  }
 /* custom genre select menu */
 
 .Wrapper {
@@ -131,6 +195,7 @@ h2 {
     width: 500px;
     padding-left: 50px;
     color: black;
+    margin-right: 10px;
 }
 
 #lyricsContainer {
@@ -143,33 +208,7 @@ h2 {
     text-decoration: none;
     color: white;
 }
-/*    
-.container{
-        height:100vh;
-        width: 100%;
-        /* add logo in the baackground?
-        background-image: "  ";
-        background-size: cover;
-        background-position: center;
-        position: relative;
-}
-.navbar{
-    width: 88%;
-    margin: auto;
-    padding: 15px 0;
-    display: flex;
-    align-items: center; 
-    justify-content: space-between;
 
+#genreDropdown {
+    margin-right: 10px;
 }
-.logo{
-    width: : ;
-    cursor: pointer;
-}
-.navbar ul li{
-    list-style: none;
-    display: inline-block;
-
-}
-
-*/
