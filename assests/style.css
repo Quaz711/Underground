@@ -98,6 +98,7 @@ h2 {
     margin-top: 10px;
     max-height: 250px;
     overflow-y: auto;
+    padding-right: 7px;
 
 }
 
@@ -124,7 +125,7 @@ h2 {
     border-radius: 5px;
 
 }
-.options li:hover{
+.options li:hover, li.selected{
     background: #f2f2f2;
 
 }

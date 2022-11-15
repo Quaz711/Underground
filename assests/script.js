@@ -13,11 +13,13 @@ let genres = ["Popular music", "Pop music", "Rock", "Hip hop music", "Rhythm and
     "Psychedelic rock", "New-age music", "J-pop", "Gospel music", "Instrumental", "Grunge", "New wave",
     "Latin pop", "Trap music", "Ska", "Bluegrass", "Hard rock", "Salsa music"];
 
-function addGenre() {
+function addGenre(selectedGenre) {
     options.innerHTML = "";
    genres.forEach(genre => {
-
-        let li = `<li onclick="updateName(this)">${genre}</li>`;
+    // if selected genre and genre value is same then added selected class
+        let isSelected = genre == selectedGenre ? "selected" : "";
+        // adding each genre inside the li  and inserting all li inside the options tag
+        let li = `<li onclick="updateName(this)" class="${isSelected}">${genre}</li>`;
         options.insertAdjacentHTML("beforeend", li);
         
    });
@@ -27,7 +29,7 @@ addGenre();
 
 function updateName(selectedLi) {
     searchInp.value = "";
-    addGenre();
+    addGenre(selectedLi.innerText);
     wrapper.classList.remove("active");
     selectBtn.firstElementChild.innerText = selectedLi.innerText;
 }
