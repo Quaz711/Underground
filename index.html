@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="assets/style.css">
     <!--iconscout link for icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
 </head>
 
 <body id="backg">
@@ -19,7 +19,7 @@
         <h1>Underground</h1>
         <h2>A Place to Search for Something New</h2>
     </header>
-
+<!--
     <div class="Wrapper">
         <div class="select-btn">
             <span>Select Genre</span>
@@ -84,41 +84,44 @@
                 <li>Salsa music</li>
             </ul>
         </div>
+    </div>-->
+
+    <div class="container">        
+        <form action="">
+            <input type="hidden" id='hidden_token'>
+            <div class="col-sm-6 form-group row mt-4 px-0">
+                <label for="Genre" class="form-label col-sm-2">Genre:</label>
+                <select name="" id="select_genre" class="form-control form-control-sm col-sm-10">
+                    <option>Select...</option>                    
+                </select>
+            </div>
+            <div class="col-sm-6 form-group row px-0">
+                <label for="Genre" class="form-label col-sm-2">Playlists:</label>
+                <select name="" id="select_playlist" class="form-control form-control-sm col-sm-10">
+                    <option>Select...</option>                    
+                </select>
+            </div>                  
+            <div class="col-sm-6 row form-group px-0">
+                <button type="submit" id="btn_submit" class="btn btn-success col-sm-12">Search</button>
+            </div>          
+        </form>        
+        <div class="row">
+            <div class="col-sm-6 px-0">
+                <div class="list-group song-list">
+                    
+                </div>                                             
+            </div>
+            <div class="offset-md-1 col-sm-4" id="song-detail">                
+            </div>
+        </div>   
     </div>
+
     <div>
         <div id="songContainer">SONG LIST</div>       
         <div id="lyricsContainer" style="background-color: white; padding: 20px;"></div>        
     </div>
 
-    
-
-    <!-- was supposed to be nav bar if we did one
-    <div class="container">
-        <div class="navbar"></div>
-       
-        <img src="" class="logo">
-        <ul>
-            <li><a href="#">home</a></li>
-            <li><a href="#">home</a></li>
-            <li><a href="#">home</a></li>
-            <li><a href="#">home</a></li>
-        </ul>
-
-    </div>
-
--->
-
-    <div id="target">
-        <ul>
-            <li><a href="#" class="genre">punk</a></li>
-            <li><a href="#" class="genre">rap</a></li>
-            <li><a href="#" class="genre">rock</a></li>
-        </ul>
-    </div>
-
 <script src="assets/script.js"></script>
-<script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
-
 
 </body>
 
