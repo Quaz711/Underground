@@ -19,19 +19,14 @@
     </head>
 
     <body id="backg">
+        <nav style="text-align: end;"><a href="https://github.com/Quaz711/Underground"><img id="githubIcon" src="assets/GitHub.png" alt="GitHub Icon"></a></nav>
         <header>
             <h1 class="around">UNDERGROUND</h1>
         </header>
         <h2 class="subtitle">A Place to Search for Something New</h2>
 
         <div class="Wrapper">
-            <div id="genreDropdown" class="container"                 
-            style="
-            background-color: black;
-            width: 33%;
-            border-radius: 20px;
-            color: white;
-        ">
+            <div id="genreDropdown" class="container">                 
                 <form action="">
                     <input type="hidden" id="hidden_token" />
                     <div class="col-sm-6 form-group row mt-4 px-0">
@@ -63,8 +58,7 @@
                             type="submit"
                             id="btn_submit"
                             class="btn btn-success col-sm-12"
-                        >
-                            Search
+                        ><h3 id="buttonText">SEARCH</h3>
                         </button>
                     </div>
                 </form>
@@ -87,29 +81,13 @@
         </div> -->
 
             <div
-                id="songContainer"
-                
-                style="
-                    text-align: center;
-                    background-color: black;
-                    width: 33%;;
-                    border-radius: 20px;
-                    color: white;
-                "
-            >
+                id="songContainer">
+                    <h3>SONGS</h3>
             </div>
             <div
-                id="lyricsContainer"
-                style="
-                    padding-top: 20px;
-                    padding-bottom: 20px;
-                    background-color: black;
-                    text-align: center;
-                    width: 33%;
-                    border-radius: 20px;
-                    color: white;
-                "
-            ></div>
+                id="lyricsContainer">
+                    <h3>LYRICS</h3>
+            </div>
         </div>
 
         <script src="assets/script.js"></script>
