@@ -127,6 +127,8 @@ const APPController = (function(UICtrl, APICtrl) {
     }
 
     DOMInputs.genre.addEventListener('change', async () => {
+        UICtrl.resetTracks();
+        $("#songContainer").html("<h3>SONGS</h3><br>")
         const genreSelect = UICtrl.inputField().genre;
         const genreId = genreSelect.options[genreSelect.selectedIndex].value;
         if(genreId == "0JQ5DAqbMKFQ00XGBls6ym") {
