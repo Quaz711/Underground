@@ -167,12 +167,12 @@ async function searchSongAPI(query=test_call) {
         let data = await convertToJson(response);
         await addLyricsToHTML(data.response.hits[0].result.id)
         if (data.response.hits[0].result.id.find(element => element == test_call)) {
-            console.log("This is the result:")
+            console.log("This is the result:" + data.response.hits[0].result.id);
             return data;
         }
         
         else {
-            document.querySelector('#songContainer').insertAdjacentHTML('beforeend', "Data Not Currently Available");
+            document.querySelector('#lyricsContainer').insertAdjacentHTML('beforeend', "Data Not Currently Available");
         }
     }
 }
@@ -187,17 +187,13 @@ async function grabSongs() {
 
     let response = await fetch(testurl, options)
     let data = await convertToJson(response)
-    console.log(response.status);
-    if (response.status == 200 && typeof data !== "undefined") {
-        console.log(data.tracks.items[0].artists[0].name);
-        console.log(data.tracks.items[0].name);
-        console.log(data.tracks);
+    let artistTrue = data.tracks.items.length > 0;
+    if (response.status == 200 && artistTrue) {
         var randomHolder = [];
 
         for (var i = 0; i < 10; i++) {
             var randomNumber = (Math.floor(Math.random() * 49));
             if (randomHolder.find(element => element == randomNumber)) {
-                console.log("Repick Number - Random Nuumber: " + randomNumber);
                 i--;
             }
 
@@ -206,9 +202,7 @@ async function grabSongs() {
                 randomHolder.push(randomNumber);
                 test_artist = data.tracks.items[randomNumber].artists[0].name;
                 test_song = data.tracks.items[randomNumber].name;
-                //test_id = data.tracks.items[randomNumber].id;
                 test_call = test_artist + " " + test_song;
-                //var html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${test_id}">${test_artist} - ${test_song}</a><br>`;
                 var html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${i}">${test_artist} - ${test_song}</a><br>`;
                 document.querySelector('#songContainer').insertAdjacentHTML('beforeend', html);
                 localStorage.setItem(i, test_call);
