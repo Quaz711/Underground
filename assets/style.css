@@ -6,6 +6,10 @@
     font-family: "Poppins", sans-serif;
 }
 
+html {
+    min-height: 100%;
+}
+
 /* Imported custom free fonts from dafont.com */
 @font-face {
     font-family: undergroundFont;
@@ -106,8 +110,11 @@ label {
 
 
 #backg {
-    background-image: url("underg.jpg");
+    background-image: url("undergroundEdit.png");
     background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    background-position: center;
 }
 
 #select_genre {
@@ -176,12 +183,17 @@ label {
 }
 
 #githubIcon {
-    width: 50px;
+    width: 40px;
     height: auto;
     margin-right: 30px;
     margin-top: 20px;
     background-color: rgba(227, 221, 226, 0.661);
     border-radius: 20px;
+}
+
+#githubIcon:hover {
+    outline: brown;
+    outline-style: dotted;
 }
 
 @media (max-width: 800px) {
@@ -192,11 +204,18 @@ label {
         flex-direction: column;
         flex: 100%;
     }
-    .btn {
-        width: 100px;
-    }
-    #buttonText {
-        font-size: 10px;
-        letter-spacing: 0;
-    }
+}
+
+#footerDiv {
+    position: fixed;
+    margin-left: 25%;
+    width: 50%;
+    height: 50px;
+    bottom: 0;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 20px;
+    opacity: 20%;
+    color: white;
 }
