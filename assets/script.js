@@ -17,7 +17,7 @@ const DOMElements = {
     selectGenre: '#select_genre',
     buttonSubmit: '#btn_submit',
     hfToken: '#hidden_token',
-    divSonglist: '.song-list'
+    divSonglist: '#songContainer'
 }
 
 const APIController = (function() {
@@ -127,6 +127,8 @@ const APPController = (function(UICtrl, APICtrl) {
     }
 
     DOMInputs.genre.addEventListener('change', async () => {
+        //e.preventDefault();
+        UICtrl.resetTracks();
         const genreSelect = UICtrl.inputField().genre;
         const genreId = genreSelect.options[genreSelect.selectedIndex].value;
         if(genreId == "0JQ5DAqbMKFQ00XGBls6ym") {
@@ -212,10 +214,10 @@ const APPController = (function(UICtrl, APICtrl) {
         grabGenre();
     });
      
-    DOMInputs.submit.addEventListener('click', async (e) => {
-        e.preventDefault();
-        UICtrl.resetTracks();
-    });
+    //DOMInputs.submit.addEventListener('click', async (e) => {
+    //    e.preventDefault();
+     //   UICtrl.resetTracks();
+    //});
 
     DOMInputs.tracks.addEventListener('click', async (e) => {
         e.preventDefault();
@@ -283,7 +285,7 @@ async function grabGenre() {
         test_artist = data.tracks.items[randomNumber].artists[0].name;
         test_song = data.tracks.items[randomNumber].name;
         test_id = data.tracks.items[randomNumber].id;
-        var html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${test_id}">${test_artist} - ${test_song}</a>`;
+        var html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${test_id}">${test_artist} - ${test_song}</a><br>`;
         document.querySelector(DOMElements.divSonglist).insertAdjacentHTML('beforeend', html);
 //***************MAKE SAVE TO LOCAL STORAGE************************/
     }
