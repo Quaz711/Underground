@@ -242,6 +242,7 @@ const APPController = (function(UICtrl, APICtrl) {
 
 APPController.init();
 
+// A function that adds lyrics to HTML
 async function addLyricsToHTML(songId) {
     let response = await fetch(`https://genius.com/songs/${songId}/embed.js`)
     let scriptText = await response.text()
