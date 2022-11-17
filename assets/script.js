@@ -187,8 +187,6 @@ async function grabSongs() {
 
     let response = await fetch(testurl, options)
     let data = await convertToJson(response)
-    console.log(data)
-    console.log(response.status);
     let artistTrue = data.tracks.items.length > 0
     if (response.status == 200 && artistTrue) {
         console.log(data.tracks.items[0].artists[0].name);
@@ -220,4 +218,4 @@ async function grabSongs() {
     else {
         document.querySelector('#songContainer').insertAdjacentHTML('beforeend', "Data Not Currently Available");
     }
-}
+}}
