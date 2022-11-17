@@ -29,46 +29,33 @@
             <div id="genreDropdown" class="container">                 
                 <form action="">
                     <input type="hidden" id="hidden_token" />
-                    <div class="col-sm-6 form-group row mt-4 px-0">
-                        <label for="Genre" class="form-label col-sm-2"
-                            >Genre:</label
+                    <div>
+                        <label for="Genre" class="genreText"
+                            >GENRE</label
                         >
                         <select
                             name=""
-                            id="select_genre"
-                            class="form-control form-control-sm col-sm-10"
-                        >
+                            id="select_genre">
                             <option>Select...</option>
                         </select>
                     </div>
-                    <div class="col-sm-6 row form-group px-0">
+                    <div>
                         <button
+                        hidden="true"
                             type="submit"
                             id="btn_submit"
-                            class="btn btn-success col-sm-12"
-                        >
+                            class="btn">
                             Clear
                         </button>
                     </div>
                 </form>
-                <div class="row">
-                    <div class="col-sm-6 px-0">
+                <div>
+                    <div>
                         <div class="list-group song-list"></div>
                     </div>
-                    <div class="offset-md-1 col-sm-4" id="song-detail"></div>
+                    <div id="song-detail"></div>
                 </div>
             </div>
-            <!-- <div class="select-btn">
-            <span>Select Genre</span>
-            <i class="uil uil-angle-down"></i>
-        </div>
-        <div class="content">
-            <div class="search">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Search">
-            </div>
-        </div> -->
-
             <div
                 id="songContainer">
                     <h3>SONGS</h3>

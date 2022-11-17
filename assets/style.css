@@ -1,5 +1,3 @@
-/*google fonts - poppins*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700$display=swap");
 
 * {
     margin: 0;
@@ -8,7 +6,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-
+/* Imported custom free fonts from dafont.com */
 @font-face {
     font-family: undergroundFont;
     src: url("adrip1.ttf");
@@ -19,6 +17,33 @@
     src: url("Mostwasted.ttf");
 }
 
+header {
+
+    text-align: center;
+    text-decoration-color: brown;
+    padding-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 200px;
+    font-family: undergroundFont;
+    color: red;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-style: italic;
+    font-size: 25px;
+    font-family: subtitleFont;
+    color: rgb(214, 154, 42);
+
+}
+
+label {
+    font-size: 20px;
+}
 
 .around {
     text-align: center;
@@ -50,35 +75,6 @@
     }
 }
 
-
-
-header {
-    /* margin: 50px 180px;
-    height: 150px; */
-    text-align: center;
-    text-decoration-color: brown;
-    padding-top: 50px;
-}
-
-h1 {
-    text-align: center;
-    /* text-decoration: underline; */
-    font-size: 200px;
-    font-family: undergroundFont;
-    color: red;
-}
-
-h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    font-style: italic;
-    font-size: 25px;
-    font-family: subtitleFont;
-    color: rgb(214, 154, 42);
-
-}
-
-
 .subtitle {
     color: black;
     text-shadow:
@@ -101,6 +97,7 @@ h2 {
     0px -10px 100px #7b96b8, 
     0px -10px 100px #7b96b8;
 }
+
 /* Contains genre, songs, and lyrics divs */
 .Wrapper {
     margin-top: 80px;
@@ -108,107 +105,6 @@ h2 {
     flex-wrap: wrap;
 }
 
-.btn {
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: yellow;
-}
-
-/* .select-btn, */
-/* .options li {
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-} */
-/* .select-btn {
-    height: 65px;
-    font-size: 22px;
-    padding: 0 20px;
-    border-radius: 7px;
-    background: white;
-    justify-content: space-between;
-}
-.select-btn i {
-    font-size: 31px;
-} */
-
-/* .content {
-    margin-top: 15px;
-    padding: 20px;
-    border-radius: 7px;
-    background: white;
-}
-
-.content .search {
-    position: relative;
-}
-/* this is the little magnify glass icon*/
-/* .search i {
-    left: 15px;
-
-    color: #999;
-    font-size: 20px;
-    line-height: 53px;
-    position: absolute;
-}
-
-.search input {
-    height: 53px;
-    width: 100%;
-    outline: none;
-    font-size: 17px;
-    border-radius: 5px;
-    padding: 0 15px 0 43px;
-    border: 1px solid grey;
-} */
-/* this adjust the dropdown menu margins*/
-/* .content .options {
-    margin-top: 10px;
-    max-height: 250px;
-    overflow-y: auto;
-}
-
-.options::-webkit-scrollbar {
-    width: 7px;
-}
-
-.options::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 25px;
-}
-
-.options::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 25px;
-}
-
-.options li {
-    height: 50px;
-    padding: 0 13px;
-    font-size: 21px;
-    border-radius: 5px;
-}
-.options li:hover {
-    background: #f2f2f2;
-} */ 
-
-@media (max-width: 800px) {
-    h1 {
-        font-size: 90px;
-    }
-    .Wrapper {
-        flex-direction: column;
-        flex: 100%;
-    }
-    .btn {
-        width: 100px;
-    }
-    #buttonText {
-        font-size: 10px;
-        letter-spacing: 0;
-    }
-}
 
 #backg {
     background-image: url("underg.jpg");
@@ -228,6 +124,10 @@ h2 {
 
 }
 
+#songContainer a {
+    color: white;
+}
+
 #lyricsContainer {
     flex: 1;
     color: white;
@@ -237,7 +137,9 @@ h2 {
     text-align: center;
     border-radius: 20px;
     margin: 5px;
+    max-height: 300px;
     background: rgba(0,0,0,0.7);
+    overflow-y: auto;
 }
 
 #lyricsContainer a {
@@ -257,14 +159,6 @@ h2 {
     background: rgba(0,0,0,0.7);
 }
 
-#buttonText {
-
-    font-family: undergroundFont;
-    font-size: 55px;
-    letter-spacing: 3px;
-    text-align: center;
-}
-
 #githubIcon {
     width: 50px;
     height: auto;
@@ -272,4 +166,21 @@ h2 {
     margin-top: 20px;
     background-color: rgba(227, 221, 226, 0.661);
     border-radius: 20px;
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 90px;
+    }
+    .Wrapper {
+        flex-direction: column;
+        flex: 100%;
+    }
+    .btn {
+        width: 100px;
+    }
+    #buttonText {
+        font-size: 10px;
+        letter-spacing: 0;
+    }
 }

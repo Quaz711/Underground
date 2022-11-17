@@ -17,7 +17,7 @@ const DOMElements = {
     selectGenre: '#select_genre',
     buttonSubmit: '#btn_submit',
     hfToken: '#hidden_token',
-    divSonglist: '.song-list'
+    divSonglist: '#songContainer'
 }
 
 const APIController = (function() {
@@ -240,6 +240,7 @@ const APPController = (function(UICtrl, APICtrl) {
 
 APPController.init();
 
+// A function that adds lyrics to HTML
 async function addLyricsToHTML(songId) {
     let response = await fetch(`https://genius.com/songs/${songId}/embed.js`)
     let scriptText = await response.text()
@@ -283,7 +284,7 @@ async function grabGenre() {
         test_artist = data.tracks.items[randomNumber].artists[0].name;
         test_song = data.tracks.items[randomNumber].name;
         test_id = data.tracks.items[randomNumber].id;
-        var html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${test_id}">${test_artist} - ${test_song}</a>`;
+        var html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${test_id}">${test_artist} - ${test_song}</a><br>`;
         document.querySelector(DOMElements.divSonglist).insertAdjacentHTML('beforeend', html);
 //***************MAKE SAVE TO LOCAL STORAGE************************/
     }
