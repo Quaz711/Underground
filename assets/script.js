@@ -42,7 +42,6 @@ const APIController = (function() {
 
         const data = await result.json();
         genreName = data.categories.items;
-        console.log(genreName);
         return data.categories.items;
     }
 
@@ -120,14 +119,12 @@ const APPController = (function(UICtrl, APICtrl) {
         $("#lyricsContainer").html("<h3>LYRICS</h3><br>");
         selectElement = document.querySelector('#select_genre');
         genreSelect = selectElement.options[selectElement.selectedIndex].text;
-        console.log("test selection: " + genreSelect);
         grabSongs();
     });
 
     DOMInputs.tracks.addEventListener('click', async (e) => {
         e.preventDefault();
         test_call = localStorage.getItem(e.target.id);
-        console.log("test_call" + test_call);
         searchSongAPI();
     });    
 
@@ -146,15 +143,13 @@ async function addLyricsToHTML(songId) {
     let response = await fetch(`https://genius.com/songs/${songId}/embed.js`)
     let scriptText = await response.text()
     let lyricsHtml = scriptText.match(/JSON\.parse\((.+)\)\)/)
-    lyricsHtml = lyricsHtml[1].replaceAll(/\\n/g, "")    
-    lyricsHtml = lyricsHtml.replaceAll(/\\/g, "")    
+    lyricsHtml = lyricsHtml[1].replaceAll(/\\n/g, "")
+    lyricsHtml = lyricsHtml.replaceAll(/\\/g, "")
     lyricsHtml = lyricsHtml.replaceAll(/<iframe.+<\/iframe>/g, "")
     lyricsHtml = lyricsHtml.trim()
-    lyricsHtml = lyricsHtml.replace(/\'\s*\"\s+/g, '').replace(/>\"\'/, ">")    
-    //let lyricsContainer = $('#lyricsContainer');
+    lyricsHtml = lyricsHtml.replace(/\'\s*\"\s+/g, '').replace(/>\"\'/, ">")
     $("#lyricsContainer").html("<h3>LYRICS</h3><br>");
     document.querySelector("#lyricsContainer").insertAdjacentHTML('beforeend', lyricsHtml);
-    //lyricsContainer.html(lyricsHtml);
     
 }
 
@@ -166,14 +161,14 @@ async function searchSongAPI(query=test_call) {
         let response = await fetch(requestURL);
         let data = await convertToJson(response);
         await addLyricsToHTML(data.response.hits[0].result.id)
-        if (data.response.hits[0].result.id.find(element => element == test_call)) {
-            console.log("This is the result:" + data.response.hits[0].result.id);
+        //f (data.response.hits[0].result.id.find(element => element == test_call)) {
+            console.log("This is the result:" + data.response);
             return data;
-        }
+        //}
         
-        else {
-            document.querySelector('#lyricsContainer').insertAdjacentHTML('beforeend', "Data Not Currently Available");
-        }
+        //else {
+        //    document.querySelector('#lyricsContainer').insertAdjacentHTML('beforeend', "Data Not Currently Available");
+        //}
     }
 }
 
@@ -203,7 +198,6 @@ async function grabSongs() {
             }
 
             else {
-                console.log("Random Number: " + randomNumber);
                 randomHolder.push(randomNumber);
                 test_artist = data.tracks.items[randomNumber].artists[0].name;
                 test_song = data.tracks.items[randomNumber].name;
