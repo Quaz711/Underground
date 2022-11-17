@@ -167,6 +167,7 @@ async function searchSongAPI(query=test_call) {
         let data = await convertToJson(response);
         await addLyricsToHTML(data.response.hits[0].result.id)
         return data;
+        
     }
 }
 
