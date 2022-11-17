@@ -100,7 +100,7 @@ const APPController = (function(UICtrl, APICtrl) {
         for (var i = 0; i < genreList.length; ++i)
         {
             choice.value = i;
-            choice.text = genreList[i];
+            choice.text = genreList[i];0000
             choices.push(choice.outerHTML);
         }
 
