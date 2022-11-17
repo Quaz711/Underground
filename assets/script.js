@@ -184,11 +184,6 @@ async function grabSongs() {
     let data = await convertToJson(response)
     let artistTrue = data.tracks.items.length > 0
     if (response.status == 200 && artistTrue) {
-        console.log(data.tracks.items[0].artists[0].name);
-        console.log(data.tracks.items[0].name);
-        console.log(data.tracks);
-    let artistTrue = data.tracks.items.length > 0;
-    if (response.status == 200 && artistTrue) {
         var randomHolder = [];
 
         for (var i = 0; i < 10; i++) {
@@ -212,4 +207,4 @@ async function grabSongs() {
     else {
         document.querySelector('#songContainer').insertAdjacentHTML('beforeend', "Data Not Currently Available");
     }
-}}
+}
