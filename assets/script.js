@@ -32,7 +32,7 @@ const APIController = (function() {
         const data = await result.json();
         return data.access_token;
     }
- /*   
+    
     const _getGenres = async (token) => {
 
         const result = await fetch(`https://api.spotify.com/v1/browse/categories?locale=sv_US`, {
@@ -45,16 +45,16 @@ const APIController = (function() {
         console.log(genreName);
         return data.categories.items;
     }
-*/
+
     return {
         getToken() {
             return _getToken();
-        }
-/*
+        },
+
         getGenres(token) {
             return _getGenres(token);
         }
-*/
+
     }
 })();
 
@@ -68,12 +68,12 @@ const UIController = (function() {
                 //submit: document.querySelector('#btn_submit'),
             }
         },
-/*
+
         createGenre(text, value) {
             const html = `<option value="${value}">${text}</option>`;
             document.querySelector('#select_genre').insertAdjacentHTML('beforeend', html);
         },
-*/
+
         resetTracks() {
             this.inputField().tracks.innerHTML = '';
             this.inputField().lyrics.innerHTML = '';
@@ -95,7 +95,7 @@ const UIController = (function() {
 const APPController = (function(UICtrl, APICtrl) {
     const DOMInputs = UICtrl.inputField();
     const loadGenres = async () => {
-        var choices = [];
+/*        var choices = [];
 
         for (var i = 0; i < genreList.length; ++i)
         {
@@ -105,13 +105,13 @@ const APPController = (function(UICtrl, APICtrl) {
         }
 
         document.getElementById("select_genre").insertAdjacentHTML('beforeEnd', choices.join('\n'));
-/*
+*/
         const token = await APICtrl.getToken();
         tempToken = token;
         UICtrl.storeToken(token);
         const genres = await APICtrl.getGenres(token);
         genres.forEach(element => UICtrl.createGenre(element.name, element.id));
-*/
+
     }
 
     DOMInputs.genre.addEventListener('change', async () => {
@@ -166,8 +166,14 @@ async function searchSongAPI(query=test_call) {
         let response = await fetch(requestURL);
         let data = await convertToJson(response);
         await addLyricsToHTML(data.response.hits[0].result.id)
-        return data;
+        if (data.response.hits[0].result.id.find(element => element == test_call)) {
+            console.log("This is the result:")
+            return data;
+        }
         
+        else {
+            document.querySelector('#songContainer').insertAdjacentHTML('beforeend', "Data Not Currently Available");
+        }
     }
 }
 
@@ -182,7 +188,7 @@ async function grabSongs() {
     let response = await fetch(testurl, options)
     let data = await convertToJson(response)
     console.log(response.status);
-    if (response.status == 200) {
+    if (response.status == 200 && typeof data !== "undefined") {
         console.log(data.tracks.items[0].artists[0].name);
         console.log(data.tracks.items[0].name);
         console.log(data.tracks);
@@ -196,7 +202,7 @@ async function grabSongs() {
             }
 
             else {
-                console.log("Random Nuumber: " + randomNumber);
+                console.log("Random Number: " + randomNumber);
                 randomHolder.push(randomNumber);
                 test_artist = data.tracks.items[randomNumber].artists[0].name;
                 test_song = data.tracks.items[randomNumber].name;
