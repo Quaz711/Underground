@@ -187,8 +187,10 @@ async function grabSongs() {
 
     let response = await fetch(testurl, options)
     let data = await convertToJson(response)
+    console.log(data)
     console.log(response.status);
-    if (response.status == 200 && typeof data !== "undefined") {
+    let artistTrue = data.tracks.items.length > 0
+    if (response.status == 200 && artistTrue) {
         console.log(data.tracks.items[0].artists[0].name);
         console.log(data.tracks.items[0].name);
         console.log(data.tracks);
