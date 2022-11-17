@@ -39,12 +39,6 @@ h2 {
     font-family: subtitleFont;
     color: rgb(214, 154, 42);
 
-}
-
-h3 {
-    font-size: 20px;
-}
-
 label {
     font-size: 20px;
 }
@@ -115,6 +109,24 @@ label {
     background-size: cover;
 }
 
+#select_genre {
+    flex: 1;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    margin: 5px;
+    background: rgba(0,0,0,0.7);
+    font-size: 19px;
+    font-weight: bold;
+}
+
+#select_genre a {
+    color: white;
+}
+
 #songContainer {
     flex: 1;
     text-align: center;
@@ -125,8 +137,6 @@ label {
     color: white;
     margin: 5px;
     background: rgba(0,0,0,0.7);
-    font-size: 20px;
-
 }
 
 #songContainer a {
