@@ -16,7 +16,7 @@ I can view the lyrics and sing along.
 - When I click on one of the 10 artists' songs 
 - Then i am presented with the songs lyrics.
 
-![Alt text](assets/Screenshot%202022-11-17%20at%209.14.43%20PM.png.jpg?raw=true "UNDERFGROUND")
+
 
 REPO - https://github.com/Quaz711/Underground.git
 
