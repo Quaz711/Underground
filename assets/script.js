@@ -8,12 +8,14 @@ async function convertToJson(response) {
 
 var choice = document.createElement("option");
 var genreName;
+var songStorageID = 0;
 var tempToken = "";
 var test_artist = "";
 var test_song = "";
 var test_genre = "";
 var test_id = "";
 var test_call = "Blue October Hate Me";
+var songStorage = [];
 const genreList = ["Rock", "Pop", "Country", "Latino", "R&B", "Dance/electronic", "Indie", "Chill", "Gaming"];
 
 const APIController = (function() {
@@ -125,6 +127,7 @@ const APPController = (function(UICtrl, APICtrl) {
     DOMInputs.tracks.addEventListener('click', async (e) => {
         e.preventDefault();
         test_call = localStorage.getItem(e.target.id);
+        songStorageID = e.target.id;
         searchSongAPI();
     });    
 
@@ -148,9 +151,15 @@ async function addLyricsToHTML(songId) {
     lyricsHtml = lyricsHtml.replaceAll(/<iframe.+<\/iframe>/g, "")
     lyricsHtml = lyricsHtml.trim()
     lyricsHtml = lyricsHtml.replace(/\'\s*\"\s+/g, '').replace(/>\"\'/, ">")
+    console.log("This is the result:" + lyricsHtml);
     $("#lyricsContainer").html("<h3>LYRICS</h3><br>");
-    document.querySelector("#lyricsContainer").insertAdjacentHTML('beforeend', lyricsHtml);
-    
+    if (lyricsHtml.match(songStorage[songStorageID])) {
+        document.querySelector("#lyricsContainer").insertAdjacentHTML('beforeend', lyricsHtml);
+    }
+        
+    else {
+        document.querySelector('#lyricsContainer').insertAdjacentHTML('beforeend', "Data Not Currently Available");
+    }
 }
 
 // Function that gets the searched artist query URL
@@ -161,14 +170,7 @@ async function searchSongAPI(query=test_call) {
         let response = await fetch(requestURL);
         let data = await convertToJson(response);
         await addLyricsToHTML(data.response.hits[0].result.id)
-        //f (data.response.hits[0].result.id.find(element => element == test_call)) {
-            console.log("This is the result:" + data.response);
-            return data;
-        //}
-        
-        //else {
-        //    document.querySelector('#lyricsContainer').insertAdjacentHTML('beforeend', "Data Not Currently Available");
-        //}
+         return data;
     }
 }
 
@@ -185,6 +187,7 @@ async function grabSongs() {
     let artistTrue = data.tracks.items.length > 0;
     if (response.status == 200 && artistTrue) {
         var randomHolder = [];
+        songStorage = [];
 
         for (var i = 0; i < 10; i++) {
             var randomNumber = (Math.floor(Math.random() * 49));
@@ -197,6 +200,7 @@ async function grabSongs() {
                 test_artist = data.tracks.items[randomNumber].artists[0].name;
                 test_song = data.tracks.items[randomNumber].name;
                 test_call = test_artist + " " + test_song;
+                songStorage.push(test_song);
                 var html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${i}">${test_artist} - ${test_song}</a><br>`;
                 document.querySelector('#songContainer').insertAdjacentHTML('beforeend', html);
                 localStorage.setItem(i, test_call);
