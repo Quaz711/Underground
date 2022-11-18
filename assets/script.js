@@ -182,7 +182,7 @@ async function grabSongs() {
 
     let response = await fetch(testurl, options)
     let data = await convertToJson(response)
-    let artistTrue = data.tracks.items.length > 0;
+    let artistTrue = data.tracks.items.length > 0
     if (response.status == 200 && artistTrue) {
         var randomHolder = [];
         songStorage = [];
