@@ -1,11 +1,5 @@
 let geniusURL = "https://api.genius.com";
 let geniusToken = "zFAOsETRh7xAfSen8ewOe62Du0xx4slEmA1qx4uUNJZDneKLxyXdE958VfEZAtog";
-
-// Function for JSON conversion
-async function convertToJson(response) {
-    return await response.json();
-}
-
 var choice = document.createElement("option");
 var genreName;
 var songStorageID = 0;
@@ -18,6 +12,11 @@ var test_call = "Blue October Hate Me";
 var songStorage = [];
 const genreList = ["Rock", "Pop", "Country", "Latino", "R&B", "Dance/electronic", "Indie", "Chill", "Gaming"];
 
+// Function for JSON conversion
+async function convertToJson(response) {
+    return await response.json();
+}
+
 const APIController = (function() {
     const clientId = '9d7bc0a016f849bc829d5c74354a69d5';
     const clientSecret = '77dfd8970adc4b1582ecea9c9d13a010';
@@ -28,6 +27,7 @@ const APIController = (function() {
                 'Content-Type' : 'application/x-www-form-urlencoded', 
                 'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
             },
+
             body: 'grant_type=client_credentials'
         });
 
@@ -136,7 +136,6 @@ const APPController = (function(UICtrl, APICtrl) {
             loadGenres();
         }
     }
-
 })(UIController, APIController);
 
 APPController.init();
@@ -151,7 +150,6 @@ async function addLyricsToHTML(songId) {
     lyricsHtml = lyricsHtml.replaceAll(/<iframe.+<\/iframe>/g, "")
     lyricsHtml = lyricsHtml.trim()
     lyricsHtml = lyricsHtml.replace(/\'\s*\"\s+/g, '').replace(/>\"\'/, ">")
-    console.log("This is the result:" + lyricsHtml);
     $("#lyricsContainer").html("<h3>LYRICS</h3><br>");
     if (lyricsHtml.match(songStorage[songStorageID])) {
         document.querySelector("#lyricsContainer").insertAdjacentHTML('beforeend', lyricsHtml);
