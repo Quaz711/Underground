@@ -21,7 +21,7 @@ This was a joint project by [Cherie Ella](https://github.com/CherryElla) & [Anto
 If you have suggestions or would like to collaborate please message us! 
 
 - cherieellaviens@gmail.com
-- 
+- quaz711@hotmail.com
 
 REPO - https://github.com/Quaz711/Underground.git
 
